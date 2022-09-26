@@ -12,4 +12,16 @@ describe ReaderWriter do
       expect(@reader_writer.output).to eq 'braille.txt'
     end
   end
+
+  describe '#read_file' do
+    it 'reads text from file and stores it in an array of strings' do
+      
+    end
+  end
+
+  describe '#write_file' do
+    it 'writes text from array of strings to file' do
+
+    end
+  end
 end
