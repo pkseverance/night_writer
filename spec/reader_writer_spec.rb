@@ -21,7 +21,7 @@ describe ReaderWriter do
 
   describe '#write_file' do
     it 'writes text from array of strings to file' do
-
+      expect(@reader_writer.write_file).to eq true
     end
   end
 end
