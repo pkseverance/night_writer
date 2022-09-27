@@ -4,14 +4,14 @@ require './lib/braille_dictionary'
 describe ReaderWriter do
   before(:each) do
     @dictionary = BrailleDictionary.new
-    @reader_writer = ReaderWriter.new('./docs/dummy_message.txt', './docs/dummy_braille.txt')
+    @reader_writer = ReaderWriter.new('./docs/input/dummy_message.txt', './docs/output/dummy_braille.txt')
   end
 
   describe '#initialize' do
     it 'initializes program with the following files' do
       expect(@reader_writer).to be_an_instance_of ReaderWriter
-      expect(@reader_writer.input).to eq './docs/dummy_message.txt'
-      expect(@reader_writer.output).to eq './docs/dummy_braille.txt'
+      expect(@reader_writer.input).to eq './docs/input/dummy_message.txt'
+      expect(@reader_writer.output).to eq './docs/output/dummy_braille.txt'
     end
   end
 
