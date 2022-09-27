@@ -46,4 +46,11 @@ class ReaderWriter
     end
     file.close
   end
+
+  def write_english
+    file = File.open(@output, 'w+')
+    while @message_data.length > 0 do
+      file.write @braille_converter.convert_to_english(str_to_braille(@message_data.shift(3))) + "\n"
+    end
+  end
 end
