@@ -30,8 +30,11 @@ class ReaderWriter
   end
 
   def write_file
+    file = File.open(@output, 'a')
     @message_data.each do |line|
-      braille_text = braille_converter.convert_to_braille(line)
+      braille_text = @braille_converter.convert_to_braille(line)
+      braille_to_str(braille_text).each {|str| file.write "#{str}\n"}
     end
+    file.close
   end
 end
