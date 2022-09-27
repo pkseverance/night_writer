@@ -21,10 +21,10 @@ describe ReaderWriter do
     end
   end
 
-  describe '#write_file' do
+  describe '#write_braille' do
     it 'writes text from array of strings to file' do
       @reader_writer.read_file
-      @reader_writer.write_file
+      @reader_writer.write_braille
       expect(File.exist?(@reader_writer.output)).to eq true
     end
   end
