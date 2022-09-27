@@ -1,5 +1,6 @@
 require './lib/reader_writer'
 require './lib/braille_dictionary'
+require './lib/braille_converter'
 
 describe BrailleConverter do
   before(:each) do
@@ -18,7 +19,9 @@ describe BrailleConverter do
     expect(@braille_converter).to be_an_instance_of BrailleConverter
   end
 
-  describe '#convert_to_brail' do
-    expect(@braille_converter.convert_to_brail(@en_US_text)).to eq @braille_text
+  describe '#convert_to_braille' do
+    it 'converts given string to an array of braille characters' do
+      expect(@braille_converter.convert_to_braille(@en_US_text)).to eq @braille_text
+    end
   end
 end
