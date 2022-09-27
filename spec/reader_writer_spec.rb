@@ -29,10 +29,25 @@ describe ReaderWriter do
     end
   end
 
+  describe '#write_english' do
+    it 'writes text from array of strings to file' do
+      @reader_writer.read_file
+      @reader_writer.write_english
+      expect(File.exist?(@reader_writer.output)).to eq true
+    end
+  end
+
   describe '#braille_to_str' do
-    it 'takes braille characters and stitches them into an array of 3 strings' do
+    it 'takes braille chars and stitches them into an array of 3 strings' do
       expect(@reader_writer.braille_to_str([@dictionary.dictionary['a']])).to eq ['0.','..','..']
       expect(@reader_writer.braille_to_str([@dictionary.dictionary['a'],@dictionary.dictionary['b']])).to eq ['0. 0.','.. 0.','.. ..']
+    end
+  end
+
+  describe '#str_to_braille' do
+    it 'takes an array of 3 strings and splits them into braille chars' do
+      expect(@reader_writer.str_to_braille(['0.','..','..'])).to eq [@dictionary.dictionary['a']]
+      expect(@reader_writer.str_to_braille(['0. 0.','.. 0.','.. ..'])).to eq [@dictionary.dictionary['a'], @dictionary.dictionary['b']]
     end
   end
 end

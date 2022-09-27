@@ -24,4 +24,9 @@ describe BrailleConverter do
       expect(@braille_converter.convert_to_braille(@en_US_text)).to eq @braille_text
     end
   end
+  describe '#convert_to_english' do
+    it 'converts given array of braille chars to an english string' do
+      expect(@braille_converter.convert_to_english(@braille_text)).to eq @en_US_text.downcase
+    end
+  end
 end
