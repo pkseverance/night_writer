@@ -18,15 +18,19 @@ class ReaderWriter
   end
 
 
+  # def braille_to_str(braille)
+  #   strings = ['', '', '']
+  #   strings.each_with_index do |str, i|
+  #     braille.each do |char|
+  #       str << "#{char[i]} "
+  #     end
+  #     str.chop!
+  #   end
+  #   strings
+  # end
+
   def braille_to_str(braille)
-    strings = ['', '', '']
-    strings.each_with_index do |str, i|
-      braille.each do |char|
-        str << "#{char[i]} "
-      end
-      str.chop!
-    end
-    strings
+    Array.new(3).map.with_index {|str, i| braille.map {|char| char[i]}.join(' ')}
   end
 
   def str_to_braille(strings)
