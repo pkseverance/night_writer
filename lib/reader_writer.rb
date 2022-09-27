@@ -39,7 +39,7 @@ class ReaderWriter
   end
 
   def write_braille
-    file = File.open(@output, 'a')
+    file = File.open(@output, 'w+')
     @message_data.each do |line|
       braille_text = @braille_converter.convert_to_braille(line)
       braille_to_str(braille_text).each {|str| file.write "#{str}\n"}
