@@ -29,6 +29,11 @@ class ReaderWriter
     strings
   end
 
+  def str_to_braille(strings)
+    split_str = strings.map {|str| str.split}
+    split_str[0].map.with_index {|n, i| [split_str[0][i], split_str[1][i], split_str[2][i]]}
+  end
+
   def write_braille
     file = File.open(@output, 'a')
     @message_data.each do |line|
