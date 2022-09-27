@@ -1,7 +1,9 @@
 require './lib/reader_writer'
+require './lib/braille_dictionary'
 
 describe ReaderWriter do
   before(:each) do
+    @dictionary = BrailleDictionary.new
     @reader_writer = ReaderWriter.new('./docs/dummy_message.txt', './docs/dummy_braille.txt')
   end
 
@@ -22,6 +24,13 @@ describe ReaderWriter do
   describe '#write_file' do
     it 'writes text from array of strings to file' do
       expect(@reader_writer.write_file).to eq true
+    end
+  end
+
+  describe '#braille_to_str' do
+    it 'takes braille characters and stitches them into an array of 3 strings' do
+      expect(@reader_writer.braille_to_str([@dictionary.dictionary['a']])).to eq ['0.','..','..']
+      expect(@reader_writer.braille_to_str([@dictionary.dictionary['a'],@dictionary.dictionary['b']])).to eq ['0. 0.','.. 0.','.. ..']
     end
   end
 end
