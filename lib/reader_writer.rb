@@ -39,7 +39,7 @@ class ReaderWriter
     @message_data.each do |line|
       @message_length += line.chomp.length
       while line.length > 0 do
-        braille_text = @braille_converter.convert_to_braille(line.slice!(0..79))
+        braille_text = @braille_converter.convert_to_braille(line.slice!(0..39))
         braille_to_str(braille_text).each {|str| file.write "#{str}\n"}
       end
     end
