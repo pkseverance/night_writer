@@ -16,15 +16,14 @@ describe ReaderWriter do
     end
   end
 
-  describe '#read_file' do
-    it 'reads text from file and stores it in an array of strings' do
-      expect(@reader_writer.read_file).to eq ['Sphinx of black quartz judge my vow']
+  describe '#message_data' do
+    it 'reads text from file and stores it in message_data as an array of strings' do
+      expect(@reader_writer.message_data).to eq ['Sphinx of black quartz judge my vow']
     end
   end
 
   describe '#write_braille' do
     it 'writes text from array of strings to file' do
-      @reader_writer.read_file
       @reader_writer.write_braille
       expect(File.exist?(@reader_writer.output)).to eq true
     end
@@ -32,7 +31,6 @@ describe ReaderWriter do
 
   describe '#write_english' do
     it 'writes text from array of strings to file' do
-      @reader_writer_reverse.read_file
       @reader_writer_reverse.write_english
       expect(File.exist?(@reader_writer_reverse.output)).to eq true
     end
